@@ -10,7 +10,7 @@ public class ConexionBd {
 
     public void EstablecerConexion() {
 
-        String url = "jdbc:postgresql://localhost:5432/serveralumnodbs";
+        String url = "jdbc:postgresql://localhost:5432/dbd_routesrides";
 
         String usuario = "postgres";
 
