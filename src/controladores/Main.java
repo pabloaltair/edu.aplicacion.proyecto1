@@ -2,7 +2,7 @@ package controladores;
 import java.lang.ref.Cleaner;
 import java.util.ArrayList;
 
-import dto.AlumnoDto;
+import dto.UsuarioDto;
 import servicios.*;
 /**
  * Clase de acceso aplicacion
@@ -13,7 +13,7 @@ import servicios.*;
 public class Main {
 	
 	//ARRAYLIST DE ALUMNOS
-	static ArrayList<AlumnoDto> listaAlumnos = new ArrayList<>();
+	static ArrayList<UsuarioDto> listaUsuarios = new ArrayList<>();
 	
 	//COMIENZO CLASE METODO MAIN
 	public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class Main {
 		do {
 			
 			control = mi.MostrarMenuYOpcion();
-			AlumnoInterfaz alumnoInterfaz= new AlumnoImplementacion();
+			UsuarioInterfaz UsuarioInterfaz= new UsuarioImplementacion();
 			
 			try {
 				switch(control) {
@@ -45,17 +45,17 @@ public class Main {
 						
 						break;
 					case 1:
-						System.out.println("Se abrira el alta del nuevo alumno ");
-						alumnoInterfaz.CrearAlumno();
+						System.out.println("Se abrira el alta del nuevo usuario ");
+						UsuarioInterfaz.CrearUsuario();
 						break;
 					case 2:
-						System.out.println("Se abrira la modificacion del alumno ");
-						alumnoInterfaz.ModificarAlumno();
+						System.out.println("Se abrira la modificacion del usuario ");
+						UsuarioInterfaz.ModificarUsuario();
 						break;
 						
 					case 3:
-						System.out.println("Se abrira la eliminacion del alumno ");
-						alumnoInterfaz.EliminarAlumno();
+						System.out.println("Se abrira la eliminacion del usuario ");
+						UsuarioInterfaz.EliminarUsuario();
 						break;
 						
 					default:

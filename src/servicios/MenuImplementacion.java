@@ -18,11 +18,10 @@ public class MenuImplementacion implements MenuInterfaz{
 
 	@Override
 	public byte MostrarMenuYOpcion() {
-		System.out.println("==========ELIGE UNA OPCION============");
+		System.out.println("==========¿QUE DESEA REALIZAR?============");
 		System.out.println("0. Cerrar Aplicacion");
-		System.out.println("1. Dar de alta a un alumno");
-		System.out.println("2. Modificar alumno");
-		System.out.println("3. Dar de baja a un alumno");
+		System.out.println("1. Iniciar Sesion");
+		System.out.println("2. Registrarse");
 		
 		/**
 		 * Escaner que recoge la opcion seleccionada por el usuario, y se le devuelve
