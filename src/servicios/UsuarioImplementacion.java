@@ -1,11 +1,11 @@
 package servicios;
-import java.lang.classfile.instruction.SwitchCase;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Metodos del Usuario
  * @author prosdez
- * 03/10/2024
+ * 15/10/2024
 */
 
 public class UsuarioImplementacion implements UsuarioInterfaz {
@@ -13,129 +13,70 @@ public class UsuarioImplementacion implements UsuarioInterfaz {
 	//CREAR SCANNER que utilizara el resto de metodos
 	Scanner scanner=new Scanner(System.in);
 	
-	//CREACION DEL USUARIO INTRODUCIENDO PARAMETROS A AÑADIR EN EL MISMO
-	public void CrearUsuario() {
-		System.out.println("==========DAR ALTA A USUARIO==========");
+	//INICIO DE SESION USUARIO
+	public void IniciarSesion() {
+		System.out.println("==========INICIAR SESION==========");
 		System.out.println("Introduce los campos");
 		
 		System.out.println("Nombre");
 		String nombreUsuario=scanner.nextLine();
 		
-		System.out.println("Apellidos");
-		String apellidosUsuario=scanner.nextLine();
-
-		System.out.println("DNI");
-		String dniUsuario=scanner.next();
-
-		System.out.println("Fecha de Nacimiento");
-		String fechaNacimientoUsuario=scanner.next();
-
-		System.out.println("Gmail");
-		String gmailUsuario=scanner.next();
-
-		System.out.println("Telefono");
-		int telefonoUsuario=scanner.nextInt();
+		System.out.println("Correo");
+		String emailUsuario=scanner.nextLine();
 		
+		System.out.println("Contraseña");
+		String contrasenaUsuario=scanner.nextLine();
+		
+		//Iniciamos menu dentro del usuario
+		MenuUsuario();
 		
 	}
-	//MODIFICAR USUARIO INTRODUCIENDO DNI Y MODIFICAR DATOS EN EL MISMO
+	//MENU USUARIO YA INICIADO
+		public void MenuUsuario() {
+			System.out.println("MenuUsuario");
+			System.out.println("¿Que desea realizar?");
+			System.out.println("Registrar motos");
+			System.out.println("Crear evento");
+			System.out.println("Apuntarse evento");
+			System.out.println("Ver Club");
+			System.out.println("Registrarse en Club");
+			
+		}
+		
+	//REGISTRO DE USUARIO
 	@Override
-	public void ModificarUsuario() {
+	public void RegistrarUsuario() {
 		
 		//MENU Elegir Opcion a Modificar
 		try {
-			System.out.println("==========¿QUE DESEA MODIFICAR?==========");
-			System.out.println("1. Nombre ");
-			System.out.println("2. Apellidos ");
-			System.out.println("3. DNI ");
-			System.out.println("4. Fecha de Nacimiento ");
-			System.out.println("5. Gmail ");
-			System.out.println("6. Telefono ");
+			System.out.println("==========REGISTRAR USUARIO==========");
+			System.out.println("Introduce los campos");
 			
+			System.out.println("Nombre");
+			String nombreUsuario=scanner.nextLine();
 			
-			try {
-				//CONTROLADOR de acciones de los menu(permite seleccionar las opciones del menu)
-				byte control=scanner.nextByte();
+			System.out.println("Correo");
+			String emailUsuario=scanner.nextLine();
+			
+			System.out.println("Contraseña");
+			String contrasenaUsuario=scanner.nextLine();
+			
+			System.out.println("Repite la Contraseña");
+			String contrasenarepetidaUsuario=scanner.nextLine();
+			
+			//Bucle confirmar contraseña
+			while (!contrasenaUsuario.equals(contrasenarepetidaUsuario) ) {
+				System.out.println("La contraseña no coincide, introduzca de nuevo la contraseña");
 				
-				//MENU Parametro de Usuario a Cambiar
-				switch(control) {
-				
-					case 1:
-						
-						System.out.println("Inserte nuevo nombre");
-						
-						break;
-					case 2:
-						
-						System.out.println("Inserte nuevos Apellidos");
-						
-						break;
-						
-					case 3:
-						
-						System.out.println("Inserte nuevo DNI");
-						
-						break;
-					
-					case 4:
-						
-						System.out.println("Inserte nueva Fecha de Nacimiento");
-						
-						break;
-					
-					case 5:
-						
-						System.out.println("Inserte nuevo Gmail");
-						
-						break;
-					
-					case 6:
-						
-						System.out.println("Inserte nuevo telefono");
-						
-						break;
-						
-					default:
-						
-						System.out.println("ERROR: Seleccione una opción valida");
-						break;
+				System.out.println("Contraseña");
+				contrasenaUsuario=scanner.nextLine();
+				System.out.println("Repite la Contraseña");
+				contrasenarepetidaUsuario=scanner.nextLine();
 				}
-				
-			} catch (Exception e) {
 			
-			}
 		}
 		catch(Exception e) {
 			
 		}
-	}
-
-	@Override
-	//ELIMINAR USUARIO PIDIENDO DNI
-	public void EliminarUsuario() {
-		System.out.println("=============ELIMINAR Usuario=============");
-		System.out.println("\u001B[1;31m ¿Esta Seguro de eliminar Usuario?\u001B[0m");
-		System.out.println("0. No, Volver al Menu Principal");
-		System.out.println("1. Si, Eliminar Usuario ");
-		try {
-			//CONTROLADOR de acciones de los menu(permite seleccionar las opciones del menu)
-			byte control=scanner.nextByte();
-			
-			switch(control) {
-			case 0:
-				System.out.println("Eliminando Usuario");
-				break;
-			case 1:
-				System.out.println("Volviendo al Menu Principal");
-				break;
-			}
-			
-		}catch (Exception e) {
-			
-		}
-		
-		
-			
-		
 	}
 }

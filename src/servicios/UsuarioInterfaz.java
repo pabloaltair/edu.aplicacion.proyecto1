@@ -14,10 +14,8 @@ public interface UsuarioInterfaz {
 	 * 23/09/2024
 	 * @author prosdez
 	 */
-	public void CrearUsuario();
-	
-	public void ModificarUsuario();
-	
-	public void EliminarUsuario();
+	public void IniciarSesion();
+	public void RegistrarUsuario();
+
 
 }

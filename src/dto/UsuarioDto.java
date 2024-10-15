@@ -1,69 +1,80 @@
 package dto;
-import java.time.LocalDate;
-
 
 /**
  * Atributos del Usuario
  * @author prosdez
- * 03/10/2024
+ * 15/10/2024
 */
 public class UsuarioDto {
+	
 	//ATRIBUTOS
+	private long idUsuario;
 	private String nombreUsuario;
-	private String apellidosUsuario;
-	private String dniUsuario;
-	private LocalDate fechaNacimientoUsuario;
-	private String gmailUsuario;
-	private int telefonoUsuario;
+	private String emailUsuario;
+	private String contrasenaUsuario;
+	private String descripcionUsuario;
+	private String enlaceImagen;
 	
 	//CONSTRUCTOR
-	public UsuarioDto(String nombreUsuario, String apellidosUsuario, String dniUsuario, LocalDate fechaNacimientoUsuario, String gmailUsuario, int telefonoUsuario) {
+	public UsuarioDto(long idUsuario, String nombreUsuario, String emailUsuario, String contrasenaUsuario,
+			String descripcionUsuario, String enlaceImagen) {
+		super();
+		this.idUsuario = idUsuario;
 		this.nombreUsuario = nombreUsuario;
-		this.apellidosUsuario = apellidosUsuario;
-		this.dniUsuario = dniUsuario;
-		this.fechaNacimientoUsuario = fechaNacimientoUsuario;
-		this.gmailUsuario = gmailUsuario;
-		this.telefonoUsuario=telefonoUsuario;
+		this.emailUsuario = emailUsuario;
+		this.contrasenaUsuario = contrasenaUsuario;
+		this.descripcionUsuario = descripcionUsuario;
+		this.enlaceImagen = enlaceImagen;
 	}
 	
-	//GETTERS
+	//GETTERS Y SETTERS
+	public long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
 	public String getNombreUsuario() {
-		return this.nombreUsuario;
+		return nombreUsuario;
 	}
-	public String getApellidosUsuario() {
-		return this.apellidosUsuario;
-	}
-	public String getDniUsuario() {
-		return this.dniUsuario;
-	}
-	public LocalDate geFechaNacimientoUsuario() {
-		return this.fechaNacimientoUsuario;
-	}
-	public String getGmailUsuario() {
-		return this.gmailUsuario;
-	}
-	public int getTelefonoUsuario() {
-		return this.telefonoUsuario;
-	}
-	
-	//SETTERS
+
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
-	public void setApellidosUsuario(String apellidosUsuario) {
-		this.apellidosUsuario = apellidosUsuario;
-	}
-	public void setDniUsuario(String dniUsuario) {
-		this.dniUsuario = dniUsuario;
-	}
-	public void setfechaNacimientoUsuario(LocalDate fechaNacimientoUsuario) {
-		this.fechaNacimientoUsuario = fechaNacimientoUsuario;
-	}
-	public void setGmailUsuario(String gmailUsuario) {
-		this.gmailUsuario = gmailUsuario;
-	}
-	public void setTelefonoUsuario(int telefonoUsuario) {
-		this.telefonoUsuario = telefonoUsuario;
-	}
-}
 
+	public String getEmailUsuario() {
+		return emailUsuario;
+	}
+
+	public void setEmailUsuario(String emailUsuario) {
+		this.emailUsuario = emailUsuario;
+	}
+
+	public String getContrasenaUsuario() {
+		return contrasenaUsuario;
+	}
+
+	public void setContrasenaUsuario(String contrasenaUsuario) {
+		this.contrasenaUsuario = contrasenaUsuario;
+	}
+
+	public String getDescripcionUsuario() {
+		return descripcionUsuario;
+	}
+
+	public void setDescripcionUsuario(String descripcionUsuario) {
+		this.descripcionUsuario = descripcionUsuario;
+	}
+
+	public String getEnlaceImagen() {
+		return enlaceImagen;
+	}
+
+	public void setEnlaceImagen(String enlaceImagen) {
+		this.enlaceImagen = enlaceImagen;
+	}
+	
+	
+}

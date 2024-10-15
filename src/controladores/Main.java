@@ -45,19 +45,14 @@ public class Main {
 						
 						break;
 					case 1:
-						System.out.println("Se abrira el alta del nuevo usuario ");
-						UsuarioInterfaz.CrearUsuario();
+						System.out.println("Se abrira el inicio de sesion ");
+						UsuarioInterfaz.IniciarSesion();
 						break;
 					case 2:
-						System.out.println("Se abrira la modificacion del usuario ");
-						UsuarioInterfaz.ModificarUsuario();
+						System.out.println("Se abrira el registro de usuario ");
+						UsuarioInterfaz.RegistrarUsuario();
 						break;
-						
-					case 3:
-						System.out.println("Se abrira la eliminacion del usuario ");
-						UsuarioInterfaz.EliminarUsuario();
-						break;
-						
+												
 					default:
 						
 						System.out.println("ERROR: Seleccione una opción valida");
