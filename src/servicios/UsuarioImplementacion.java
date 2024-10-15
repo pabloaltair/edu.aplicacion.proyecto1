@@ -1,4 +1,5 @@
 package servicios;
+import java.security.DrbgParameters.NextBytes;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,15 +34,60 @@ public class UsuarioImplementacion implements UsuarioInterfaz {
 	}
 	//MENU USUARIO YA INICIADO
 		public void MenuUsuario() {
-			System.out.println("MenuUsuario");
-			System.out.println("¿Que desea realizar?");
-			System.out.println("Registrar motos");
-			System.out.println("Crear evento");
-			System.out.println("Apuntarse evento");
-			System.out.println("Ver Club");
-			System.out.println("Registrarse en Club");
+			System.out.println("==========MENU USUARIO==========");
+			System.out.println("0. Cerrar Menu");
+			System.out.println("1. ¿Que desea realizar?");
+			System.out.println("2. Registrar motos");
+			System.out.println("3. Crear evento");
+			System.out.println("4. Apuntarse evento");
+			System.out.println("5. Ver Club");
+			System.out.println("6. Registrarse en Club");
 			
+			//Obtenemos control
+			boolean esCerrado=false;
+			do {
+				byte control=scanner.nextByte();
+				
+				try {
+					switch(control) {
+					
+						case 0:
+							System.out.println("Accediendo a registro de motos ");
+							esCerrado = true;
+							
+							break;
+						case 1:
+							System.out.println("Accediendo a creacion de eventos ");
+							
+							break;
+						case 2:
+							System.out.println("Accediendo a registro en un evento ");
+							
+							break;
+							
+						case 3:
+							System.out.println("Accediendo al club ");
+							
+							break;
+						case 4:
+							System.out.println("Accediendo al registro en un club ");
+							
+							break;
+													
+						default:
+							
+							System.out.println("ERROR: Seleccione una opción valida");
+							break;
+						}
+					
+					}catch(Exception e) {
+						System.out.println("Ha habido un error en el sistema");	
+					}
+				}while (!esCerrado);
 		}
+			
+			
+		
 		
 	//REGISTRO DE USUARIO
 	@Override
