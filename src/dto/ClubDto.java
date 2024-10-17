@@ -9,10 +9,10 @@ public class ClubDto {
 	
 	//ATRIBUTOS
 	private long idClub;
-	private String nombreClub;
-	private String contrasenaClub;
-	private String descripcionClub;
-	private String enlaceImagen;
+	private String nombreClub = "aaaaa";
+	private String contrasenaClub = "aaaaa";
+	private String descripcionClub = "aaaaaa";
+	private String enlaceImagen = "aaaaaa";
 	private boolean esPrivado;
 	
 	//CONSTRUCTOR
@@ -58,7 +58,7 @@ public class ClubDto {
 	public void setEnlaceImagen(String enlaceImagen) {
 		this.enlaceImagen = enlaceImagen;
 	}
-	public boolean isEsPrivado() {
+	public boolean EsPrivado() {
 		return esPrivado;
 	}
 	public void setEsPrivado(boolean esPrivado) {

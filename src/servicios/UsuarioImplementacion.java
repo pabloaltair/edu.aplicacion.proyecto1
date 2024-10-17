@@ -1,35 +1,60 @@
 package servicios;
+import java.net.URL;
 import java.security.DrbgParameters.NextBytes;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Scanner;
+import controladores.Main;
+import servicios.*;
+import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import dto.UsuarioDto;
+import controladores.Main;
 
 /**
  * Metodos del Usuario
  * @author prosdez
- * 15/10/2024
+ * 17/10/2024
 */
 
 public class UsuarioImplementacion implements UsuarioInterfaz {
 	
+	//Crear implementaciones
+	Main in= new Main();
+	ConexionBdInterfaz ci = new ConexionBdImplementacion();
+		
 	//CREAR SCANNER que utilizara el resto de metodos
 	Scanner scanner=new Scanner(System.in);
 	
 	//INICIO DE SESION USUARIO
 	public void IniciarSesion() {
-		System.out.println("==========INICIAR SESION==========");
-		System.out.println("Introduce los campos");
+				
+		try {
+			
+			System.out.println("==========INICIAR SESION==========");
+			System.out.println("Introduce los campos");
+			
+			System.out.println("Nombre");
+			String nombreUsuario=scanner.nextLine();
+
+			System.out.println("Contraseña");
+			String contrasenaUsuario=scanner.nextLine();
+			
+			//Comprobamos conexion
+			ConexionBdInterfaz ci = new ConexionBdImplementacion();
+			ci.EstablecerConexion();
+			
+			//Iniciamos menu dentro del usuario
+			MenuUsuario();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+		}
 		
-		System.out.println("Nombre");
-		String nombreUsuario=scanner.nextLine();
-		
-		System.out.println("Correo");
-		String emailUsuario=scanner.nextLine();
-		
-		System.out.println("Contraseña");
-		String contrasenaUsuario=scanner.nextLine();
-		
-		//Iniciamos menu dentro del usuario
-		MenuUsuario();
 		
 	}
 	//MENU USUARIO YA INICIADO
@@ -95,14 +120,13 @@ public class UsuarioImplementacion implements UsuarioInterfaz {
 		
 		//MENU Elegir Opcion a Modificar
 		try {
+			Connection conexion = ci.EstablecerConexion();
+			
 			System.out.println("==========REGISTRAR USUARIO==========");
 			System.out.println("Introduce los campos");
 			
 			System.out.println("Nombre");
 			String nombreUsuario=scanner.nextLine();
-			
-			System.out.println("Correo");
-			String emailUsuario=scanner.nextLine();
 			
 			System.out.println("Contraseña");
 			String contrasenaUsuario=scanner.nextLine();
@@ -118,11 +142,43 @@ public class UsuarioImplementacion implements UsuarioInterfaz {
 				contrasenaUsuario=scanner.nextLine();
 				System.out.println("Repite la Contraseña");
 				contrasenarepetidaUsuario=scanner.nextLine();
-				}
+			}
+			
+			
+			
+				// Generar un ID único
+				long id_usuario = util.Util.GenerarIdUsuario();
+				// Crear un objeto UsuarioDto y setear los datos
+				UsuarioDto udDto = new UsuarioDto();
+				udDto.setNombreUsuario(nombreUsuario);
+				udDto.setContrasenaUsuario(contrasenaUsuario);
+				udDto.setIdUsuario(0);
+			
+			
+			
+			// Consulta SQL para insertar el nuevo usuario
+			String insertQuery = "INSERT INTO \"dlk_usuario\".usuario (id_usuario, nombre_usuario, contrasena_usuario) VALUES (?, ?, ?, ?, ?)";
+
+			// Ejecutar la inserción a la base de datos
+			try (PreparedStatement ps = conexion.prepareStatement(insertQuery)) {
+				ps.setLong(1, id_usuario);
+				ps.setString(2, nombreUsuario);
+				ps.setString(3, contrasenaUsuario);
+
+
+				// Ejecutar la inserción
+				ps.executeUpdate();
+				conexion.close();
+				System.out.println("Usuario creado y guardado con éxito en la base de datos.");
+				
+			} catch (SQLException e) {
+				System.out.println("Error al insertar usuario en la base de datos: " + e.getMessage());
 			
 		}
-		catch(Exception e) {
+
 			
+		}catch(Exception e) {
+			System.out.println("Ha habido un error en el sistema");
 		}
 	}
 }

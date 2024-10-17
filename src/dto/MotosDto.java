@@ -1,5 +1,11 @@
 package dto;
 
+/**
+ * Atributos de la Moto
+ * @author prosdez
+ * 17/10/2024
+*/
+
 public class MotosDto {
 
 	//ATRIBUTOS
@@ -10,6 +16,7 @@ public class MotosDto {
 	private String modeloMoto;
 	private String descripcionMoto;
 	private String enlaceImagen;
+	private int idUsuario;
 	
 	//CONSTRUCTOR
 	public MotosDto(long idMoto, long id_propietario, String nombreMoto, String marcaMoto, String modeloMoto,
