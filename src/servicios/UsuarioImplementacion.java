@@ -157,7 +157,7 @@ public class UsuarioImplementacion implements UsuarioInterfaz {
 			
 			
 			// Consulta SQL para insertar el nuevo usuario
-			String insertQuery = "INSERT INTO \"dlk_usuario\".usuario (id_usuario, nombre_usuario, contrasena_usuario) VALUES (?, ?, ?, ?, ?)";
+			String insertQuery = "INSERT INTO \"dlk_usuario\".usuario (id_usuario, nombre_usuario, contrasena) VALUES (?, ?, ?)";
 
 			// Ejecutar la inserción a la base de datos
 			try (PreparedStatement ps = conexion.prepareStatement(insertQuery)) {
